@@ -18,7 +18,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-wider text-amber-400 hover:text-amber-300 transition-colors">
           <Moon className="h-6 w-6 text-purple-400 animate-pulse" />
           <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-purple-400 bg-clip-text text-transparent font-extrabold">
-            AstroTarot
+            온빛타로
           </span>
           <Sparkles className="h-4 w-4 text-amber-300" />
         </Link>
