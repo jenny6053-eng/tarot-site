@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Sparkles, Moon, Menu, X } from "lucide-react";
+import KakaoLoginButton from "@/components/KakaoLoginButton";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,10 +41,11 @@ export default function Header() {
         </nav>
 
         {/* Actions (Desktop) */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <div className="rounded-full bg-purple-950/50 p-2 border border-purple-500/20 text-purple-300">
             <Moon className="h-4 w-4" />
           </div>
+          <KakaoLoginButton />
         </div>
 
         {/* Mobile menu button */}

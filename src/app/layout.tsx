@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SessionProvider from "@/components/SessionProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,23 +19,23 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "AstroTarot - 무료 오늘의 타로 카드 & 별자리 운세",
-    template: "%s | AstroTarot"
+    default: "온빛타로 - 무료 오늘의 타로 카드 & 별자리 운세",
+    template: "%s | 온빛타로"
   },
-  description: "매일 무료로 오늘의 타로 카드를 뽑고, 78장 타로 백과사전 및 12별자리 운세를 통해 일상의 지혜와 조언을 얻으세요. 광고 및 제휴를 포함하고 있습니다.",
-  keywords: ["타로", "오늘의 타로", "타로카드", "무료 타로", "별자리 운세", "신년 운세", "타로 해석"],
-  authors: [{ name: "AstroTarot Team" }],
+  description: "매일 무료로 오늘의 타로 카드를 뽑고, 78장 타로 백과사전 및 12별자리 운세를 통해 일상의 지혜와 조언을 얻으세요.",
+  keywords: ["타로", "온빛타로", "오늘의 타로", "타로카드", "무료 타로", "별자리 운세", "타로 해석"],
+  authors: [{ name: "온빛타로" }],
   openGraph: {
-    title: "AstroTarot - 무료 오늘의 타로 카드 & 별자리 운세",
+    title: "온빛타로 - 무료 오늘의 타로 카드 & 별자리 운세",
     description: "매일 무료로 오늘의 타로 카드를 뽑고, 78장 타로 백과사전 및 12별자리 운세를 통해 일상의 지혜와 조언을 얻으세요.",
     type: "website",
     locale: "ko_KR",
-    url: "https://astrotarot.vercel.app",
-    siteName: "AstroTarot",
+    url: "https://onbit-tarot.vercel.app",
+    siteName: "온빛타로",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AstroTarot - 무료 오늘의 타로 카드 & 별자리 운세",
+    title: "온빛타로 - 무료 오늘의 타로 카드 & 별자리 운세",
     description: "매일 무료로 오늘의 타로 카드를 뽑고, 78장 타로 백과사전 및 12별자리 운세를 통해 일상의 지혜와 조언을 얻으세요.",
   }
 };
@@ -69,11 +70,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100 min-h-screen flex flex-col`}
       >
-        <Header />
-        <main className="grow flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        <SessionProvider>
+          <Header />
+          <main className="grow flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
